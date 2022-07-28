@@ -34,6 +34,7 @@ public class Rq {
         return value;
     }
 
+    /*
     public int getIntParam(String paramName, int defaultValue) {
         String value = req.getParameter(paramName);
 
@@ -47,6 +48,8 @@ public class Rq {
             return defaultValue;
         }
     }
+    */
+
 
     public void print(String str) {
         try {
@@ -68,16 +71,17 @@ public class Rq {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/jsp/" + path + ".jsp");
         try {
             requestDispatcher.forward(req, resp);
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    /*
     public String getPath() {
         return req.getRequestURI();
     }
+    */
+
 
     public String getActionPath() {
         String[] bits = req.getRequestURI().split("/");
